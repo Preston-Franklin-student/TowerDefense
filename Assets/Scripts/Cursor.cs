@@ -17,7 +17,7 @@ namespace TowerDefense
                 return targetTile;
             }
 
-            return Vector3Int.one;
+            return Vector3Int.up;
         }
 
         // Update is called once per frame

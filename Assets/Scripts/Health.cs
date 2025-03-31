@@ -6,20 +6,21 @@ namespace TowerDefense
 {
     public class Health : MonoBehaviour
     {
-        public int currentHealth = 5;
+        public float currentHealth = 5;
 
-        void TakeDamage(int damageAmount)
+        void TakeDamage(float damageAmount)
         {
             currentHealth -= damageAmount;
+            ValueDisplay.OnValueChanged.Invoke(gameObject.name + "Health", currentHealth);
+
             if(currentHealth <= 0)
             {
                 Destroy(gameObject);
             }
         }
 
-        public static void TryDamage(GameObject target, int damageAmount)
+        public static void TryDamage(GameObject target, float damageAmount)
         {
-            print("Taken damage");
             Health targetEnemy = target.GetComponent<Health>();
             if (targetEnemy)
             {
